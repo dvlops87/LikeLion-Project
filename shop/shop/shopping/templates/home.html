@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/home.css' %}">{% endblock %}
+{% block title %} Home {% endblock %}
+{% block content %}
+    <div id="container">
+        <h1>Welcome NoBrand</h1>
+        <div id="MainImgBox">
+            <img src="http://www.iconsumer.or.kr/news/photo/201702/14874307211664.jpg" width="1500">
+        </div>
+        <div id="MainProducts">
+            <div id="productListBox">
+                {% for productsDetail in products %}
+                <div class="productList">
+                        <a href="{% url 'detail' productsDetail.id %}" style="text-decoration: none; color: black;">
+                        <span><img src="{{productsDetail.productImage.url}}" width="300" class="productImage"></span><br>
+                        <span class="productName"><strong>{{productsDetail.productName}}</strong></span><br>
+                    </a><br>
+                    <span class="productPrice"><strong>{{productsDetail.productPrice}} 원</strong></span><br>
+                    </div>
+                {% endfor %}
+            </div>
+            <div id="pageBox">
+                {% if products.has_previous %}
+                <a href='?page={{products.previous_page_number}}' style="text-decoration: none; color: black;"><</a>
+                {% endif %}
+            
+                <span>{{products.number}}</span>
+                <span> / </span>
+                <span>{{products.paginator.num_pages}}</span>
+                
+                {% if products.has_next %}
+                <a href='?page={{products.next_page_number}}' style="text-decoration: none; color: black;">></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

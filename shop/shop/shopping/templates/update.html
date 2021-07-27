@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login {% endblock %}
+{% block link %}{% endblock %}
+{% block content %}
+<h1>Update Diary</h1>
+<form action="{% url 'new' %}" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<p>제목<input type="text" name="productName" style="margin-left: 30px;" placeholder="{{product.productName}}" required></p><hr>
+<p>가격<input type="text" name="productPrice" style="margin-left: 30px;" placeholder="{{product.productPrice}}" required></p><hr>
+<p>내용</p>
+<textarea name="productDetail" cols="100" rows="10" placeholder="{{product.productDetail}}"  required></textarea><hr>
+<p>사진</p>
+<input type="file" name="productImage" required><hr>
+<input type="submit" id="submitButton" value="제품 올리기">
+</form>
+{% endblock %}

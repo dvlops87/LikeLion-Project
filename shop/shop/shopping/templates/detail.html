@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/detail.css' %}">{% endblock %}
+{% block title %} detail {% endblock %}
+{% block content %}
+<div id="container">
+    <div id="showProduct">
+        <span><img src="{{product.productImage.url}}" width="400"></span><hr>
+        <span class="productName"><strong>{{product.productName}}</strong></span><hr>
+        <span class="category">가격</span>
+        <span>{{product.productPrice}} 원</span><hr>
+        <span class="category">내용</span>
+        <span>{{product.productDetail}}</span><hr>
+    
+    <div id="buttons">
+        {% if user.is_authenticated %}
+        <a href="{% url 'order' product.id user.id %}" class="orderButton">주문하기</a>
+        {% else %}
+        <a href="{% url 'login' %}" class="orderButton">주문하기</a>
+        {% endif %}
+        {% if user.username == 'admin' %}
+        <a href="{% url 'delete' product.id %}" class="orderButton">삭제하기</a>
+        <a href="{% url 'update' product.id %}" class="orderButton">수정하기</a>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

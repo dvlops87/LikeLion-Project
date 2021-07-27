@@ -1,0 +1,26 @@
+#buttons {
+    width: 600px; height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.orderedFinish {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -500px;
+}
+.orderButton {
+    width: 150px; height: 70px;
+    font-size: 22px;
+    font-weight: bold;
+    border: 5px solid rgb(231, 231, 100);
+    border-radius: 8px;
+    background-color:  rgb(231, 231, 100);
+    text-decoration: none;
+    text-align: center;
+    line-height: 70px;
+    margin: 30px 30px;
+    color: black;
+}

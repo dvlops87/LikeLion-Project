@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Order List {% endblock %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/orderList.css' %}">{% endblock %}
+{% block content %}
+<div id="container">
+    <div id="MainImgBox">
+        <img src="http://www.iconsumer.or.kr/news/photo/201702/14874307211664.jpg" width="1500">
+    </div>
+    <div id="orderList">
+        <h1>주문 내역</h1>
+        <hr>
+        <div id="orderedProduct">
+            {% for product in result %}
+            <p><img src = "{{ product.productImage.url }}" width="300px" height="300px"></p>
+            <div id="details">
+                <p class="productName"><strong>{{product.productName}}</strong></p> 
+                <p class="productPrice">가격 : {{product.productPrice}} 원</p>
+                <hr>
+            </div>
+            {% endfor %}
+        </div>
+        <h2>총 가격 : {{total}}</h2>
+    </div>
+
+</div>
+
+{% endblock %}

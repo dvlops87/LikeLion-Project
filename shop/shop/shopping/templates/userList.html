@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} User List {% endblock %}
+{% block link %}{% endblock %}
+{% block content %}
+
+{% for use in userList %}
+{{use.username}}<br>
+{% endfor %}
+
+{% endblock %}

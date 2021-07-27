@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/signup.css' %}">{% endblock %}
+{% block title %} Sign up {% endblock %}
+{% block content %}
+<div id="container">
+    <div id="signupBox">
+        <h1>Sign up</h1>
+        <form method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="아이디를 입력하세요" required><br>
+            <input type="password" name="password" placeholder="비밀번호를 입력하세요"required><br>
+            <input type="text" name="university" placeholder="대학교를 입력하세요"required><br>
+            <input type="file" name="userImage" accept="image/*">
+            <button id="signupButton">회원가입</button>
+    </div>
+</div>
+    </form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} New {% endblock %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/new.css' %}">{% endblock %}
+{% block content %}
+<div id="container">
+    <div id="MainImgBox">
+        <img src="http://www.iconsumer.or.kr/news/photo/201702/14874307211664.jpg" width="1500">
+    </div>
+    <h1>New Product</h1>
+    <div id="sellProduct">
+        <form action="{% url 'new' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>제목<input type="text" name="productName" class="inputText" required></p><hr>
+        <p>가격<input type="text" name="productPrice" class="inputText" required></p><hr>
+        <p>내용</p>
+        <textarea name="productDetail" cols="90" rows="10" style="resize: none;" required></textarea><hr>
+        <p>사진</p>
+        <input type="file" name="productImage" required><hr>
+        <input type="submit" id="submitButton" value="제품 올리기">
+        </form>
+    </div>
+</div>
+{% endblock %}

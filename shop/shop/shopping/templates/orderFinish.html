@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Order Finish {% endblock %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/orderFinish.css' %}">{% endblock %}
+{% block content %}
+<div id="container">
+<p class="orderedFinish">
+{{new_order.orderUser}}님이 구매하신 {{new_order.productOrder}}입니다. <br>구매해주셔서 감사드립니다. 빠르게 배송하겠습니다.
+</p>
+
+<div id="buttons">
+    <a href="{% url 'home' %}" class="orderButton">홈으로</a>
+</div>
+</div>
+{% endblock %}
