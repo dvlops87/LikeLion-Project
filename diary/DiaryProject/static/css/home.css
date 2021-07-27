@@ -1,0 +1,20 @@
+#blockBody {
+    display: flex;
+    width: 1200px; height: 600px;
+    justify-content: center;
+    align-items: center;
+}
+.diaryDetail {
+    display: flex;
+    width: 300px; height: 300px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(87, 87, 87)
+}
+.diaryTitle {
+    font-size: 20px;
+    font-weight: bolder;
+}
+.diaryButton {
+    font-weight: bold;
+}
